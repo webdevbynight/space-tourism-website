@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+/** @section Fonts */
+
+@font-face {
+    font-family: "Bellefair";
+    src: url("fonts/Bellefair-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Barlow Condensed";
+    src: url("fonts/BarlowCondensed-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Barlow Condensed";
+    src: url("fonts/BarlowCondensed-Bold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+}
