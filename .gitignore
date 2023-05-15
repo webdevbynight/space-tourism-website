@@ -246,4 +246,4 @@ mock-ups/original/
 
 # Tools for personal dev purposes (and the Node.js stuff used for it)
 tools/
-package.json
+package*.json
