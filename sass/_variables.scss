@@ -1,4 +1,5 @@
 @charset "utf-8";
+@use "base/mixins" as *;
 
 // Variables
 :root {
@@ -7,19 +8,21 @@
     --serif-font: Bellefair, "Droid Serif", Georgia, "Palatino Linotype", serif;
 
     // Text sizes
-    --body-text: 1.8rem;
-    --nav-text: 1.6rem;
-    --nav-letter-spacing: .27rem;
+    --body-text: 1.5rem;
+    --body-line-height: calc(2.5 / 1.5);
+    --menu-text: 1.6rem;
+    --menu-letter-spacing: .27rem;
     --definition-text: 1.4rem;
     --definition-letter-spacing: .235rem;
     --value-text: 2.8rem;
-    --hightlight-text: 2.8rem;
-    --hightlight-letter-spacing: .475rem;
+    --highlight-text: 1.6rem;
+    --highlight-letter-spacing: .27rem;
     --title-medium-text: 3.2rem;
     --title-large-text: 5.6rem;
     --title-big-text: 10rem;
-    --title-huge-text: 15rem;
-
+    --title-huge-text: 8rem;
+    --title-huge-line-height: calc(10 / 8);
+    
     // Colours
     --primary-background: #0b0d17;
     --secondary-background: rgb(255, 255, 255, .04);
@@ -29,4 +32,39 @@
     --secondary-colour-inactive: rgb(255, 255, 255, .1744);
     --secondary-colour-inactive-border: rgb(255, 255, 255, .25);
     --secondary-colour-shadow: rgb(255, 255, 255, .1036);
+    --button-foreground: var(--primary-background);
+    --button-background: var(--secondary-colour);
+    
+    @include css-media-queries ($from-breakpoint: horizontal-menu, $below-breakpoint: wide-menu) {
+        --menu-text: 1.4rem;
+        --menu-letter-spacing: .236rem;
+    }
+    @include css-media-queries ($from-breakpoint: horizontal-menu) {
+        // Text sizes
+        --body-text: 1.6rem;
+        --body-line-height: calc(2.8 / 1.6);
+        // --definition-text: 1.4rem;
+        // --definition-letter-spacing: .235rem;
+        // --value-text: 2.8rem;
+        --highlight-text: 2rem;
+        --highlight-letter-spacing: .338rem;
+        // --title-medium-text: 3.2rem;
+        // --title-large-text: 5.6rem;
+        // --title-big-text: 10rem;
+        --title-huge-text: 15rem;
+        --title-huge-line-height: 1;
+    }
+    @include css-media-queries ($from-breakpoint: desktop) {
+        // Text sizes
+        --body-text: 1.8rem;
+        --body-line-height: calc(3.2 / 1.8);
+        // --definition-text: 1.4rem;
+        // --definition-letter-spacing: .235rem;
+        // --value-text: 2.8rem;
+        --highlight-text: 2.8rem;
+        --highlight-letter-spacing: .475rem;
+        // --title-medium-text: 3.2rem;
+        // --title-large-text: 5.6rem;
+        // --title-big-text: 10rem;
+    }
 }

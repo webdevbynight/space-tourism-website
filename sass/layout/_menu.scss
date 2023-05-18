@@ -1,0 +1,121 @@
+@charset "utf-8";
+@use "../base/mixins" as *;
+
+/** @section Menu */
+
+#menu {
+    font-size: var(--menu-text);
+    line-height: normal;
+    letter-spacing: var(--menu-letter-spacing);
+    color: var(--secondary-colour);
+    background: var(--secondary-background);
+    text-transform: uppercase;
+    margin: 0 -2.4rem;
+    @if $safari <= 16.5 or $safari-ios <= 16.5 {
+        -webkit-backdrop-filter: blur(4.07742rem);
+    }
+    backdrop-filter: blur(4.07742rem);
+    ul {
+        list-style: none;
+        counter-reset: zero-indexed-nav-links -1;
+    }
+    li {
+        margin: 1.8rem 0 1.8rem 3.2rem;
+    }
+    a {
+        color: inherit;
+        display: block;
+        padding: .7rem 0 .7rem 2.9rem;
+        position: relative;
+        transition: border-right 125ms ease-in;
+        &::before {
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            counter-increment: zero-indexed-nav-links;
+            content: "0" counter(zero-indexed-nav-links);
+        }
+        &:hover,
+        &:focus,
+        &[aria-current="true"] {
+            border-right: .4rem solid;
+        }
+        &:hover,
+        &:focus {
+            &:not([aria-current="true"]) {
+                border-right-color: var(--secondary-colour-hover);
+            }
+        }
+    }
+    @include css-media-queries ($from-breakpoint: horizontal-menu, $below-breakpoint: wide-menu) {
+        ul {
+            counter-reset: initial;
+        }
+        a {
+            &::before {
+                counter-increment: initial;
+                content: normal;
+            }
+        }
+    }
+    @include css-media-queries ($from-breakpoint: horizontal-menu) {
+        width: 45rem;
+        margin: 0;
+        ul {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 4.6rem;
+        }
+        li {
+            margin: 0;
+        }
+        a {
+            padding: 3.9rem .1rem;
+            transition-property: border-bottom;
+            &:hover,
+            &:focus,
+            &[aria-current="true"] {
+                padding-bottom: 3.6rem;
+                border-right: none;
+                border-bottom: .3rem solid;
+            }
+            &:hover,
+            &:focus {
+                &:not([aria-current="true"]) {
+                    border-bottom-color: var(--secondary-colour-hover);
+                }
+            }
+        }
+    }
+    @include css-media-queries ($from-breakpoint: wide-menu) {
+        width: 83rem;
+        position: relative;
+        &::before {
+            --line-width: calc(100vw - 5.5rem - 4.8rem - 83rem - 6.4rem + 3rem);
+            --offset: calc(100vw - 5.5rem - 4.8rem - 83rem - 6.4rem);
+            background: rgb(255, 255, 255, .2515);
+            display: block;
+            width: var(--line-width);
+            height: 1px;
+            margin-top: .5px;
+            position: absolute;
+            top: 50%;
+            left: calc(var(--offset) * -1);
+            content: "";
+        }
+        ul {
+            margin-right: 16.5rem;
+            margin-left: 12.3rem;
+        }
+        a {
+            padding-right: 0;
+            padding-bottom: 3.8rem;
+            padding-left: 2.9rem;
+            &:hover,
+            &:focus,
+            &[aria-current="true"] {
+                padding-bottom: 3.5rem;
+            }
+        }
+    }
+}
