@@ -7,13 +7,21 @@
 
 @use "base/mixins" with (
     $media-queries-breakpoints: (
-        // Add custom breakpoints here if default ones do not fit the project
+        horizontal-menu: 600,
+        desktop: 800,
+        wide-menu: 997,
+        multicol-home-content: 1120
     )
     // Add the enabled browser support to take into account here if different from the default browser enabled support
     // Add the minimal browser version to take into account here if different from the default browser support
 );
+// @use "base/mixins";
 @use "variables";
 @use "base/reset";
 @use "base/print";
 @use "typo/font-face";
 @use "typo/typo";
+@use "layout/layout";
+@use "layout/header";
+@use "layout/menu";
+@use "layout/home";

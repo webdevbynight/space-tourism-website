@@ -1,0 +1,72 @@
+@charset "utf-8";
+@use "../base/mixins" as *;
+
+/** @section General layout */
+
+body {
+    color: var(--primary-colour);
+    background-color: var(--primary-background);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    padding: 2.4rem;
+    &.home {
+        background-image: url("images/background-home-mobile.jpg");
+        gap: 4.8rem;
+        padding-bottom: 4.8rem;
+    }
+}
+#menu {
+    order: 1;
+}
+@include css-media-queries ($from-breakpoint: horizontal-menu) {
+    body {
+        display: grid;
+        grid-template:
+            ". ." auto
+            "content content" 1fr
+            / 4.8rem 1fr;
+        gap: normal 4rem;
+        padding: 0 0 6.2rem 3.85rem;
+        &.home {
+            background-image: url("images/background-home-tablet.jpg");
+            row-gap: 10.6rem;
+            column-gap: inherit;
+            padding-bottom: 9rem;
+        }
+    }
+    #header {
+        align-self: center;
+    }
+    #menu {
+        justify-self: flex-end;
+        order: initial;
+    }
+    #content {
+        grid-area: content;
+        margin-right: 3.85rem;
+    }
+}
+@include css-media-queries ($from-breakpoint: wide-menu) {
+    body {
+        min-height: 100vh;
+        padding: 4rem 0 9.4rem 5.5rem;
+        box-sizing: border-box;
+        &.home {
+            background-image: url("images/background-home-desktop.jpg");
+            row-gap: 25.1rem;
+            padding-bottom: 13.1rem;
+        }
+    }
+    #content {
+        margin-right: 16.3rem;
+        margin-left: 11.15rem;
+        .home & {
+            margin-right: 16.5rem;
+            margin-left: 11.2rem;
+        }
+    }
+}

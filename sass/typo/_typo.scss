@@ -1,7 +1,15 @@
 @charset "utf-8";
 
-/** @section Typography */
+/** @section General typography */
 
 body {
+    font-size: var(--body-text);
+    line-height: var(--body-line-height);
     font-family: var(--sans-serif-font);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: initial;
+}
+a {
+    text-decoration: none;
 }
