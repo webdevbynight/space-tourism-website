@@ -12,6 +12,10 @@
     a {
         display: inline-block;
     }
+    g {
+        fill: var(--primary-colour);
+        fill-rule: evenodd;
+    }
     @include css-media-queries ($from-breakpoint: horizontal-menu) {
         #skip-link {
             @include css-visually-hidden;
