@@ -43,13 +43,13 @@ if ('matchMedia' in window && 'querySelector' in document && typeof DOMTokenList
             {
                 // Enlarge the logo on wider screens
                 const logo = document.querySelector('#header h1 img');
-                logo.width = (window.matchMedia(`(min-width: ${getEmFromPx(mediaQueriesBreakpoints['horizontal-menu'])})`).matches)? '48' : '40';
+                logo.width = (window.matchMedia(`(width >= ${getEmFromPx(mediaQueriesBreakpoints['horizontal-menu'])})`).matches)? '48' : '40';
                 logo.height = logo.width;
                 
                 // The menu show on small screens
                 const menu = document.getElementById('menu'),
                     closeButton = menu.querySelector('.close-menu');
-                if (window.matchMedia(`(max-width: ${getEmFromPx(mediaQueriesBreakpoints['horizontal-menu'])})`).matches)
+                if (window.matchMedia(`(width < ${getEmFromPx(mediaQueriesBreakpoints['horizontal-menu'])})`).matches)
                 {
                     const skipLinkMenu = document.querySelector('#skip-link a');
                     if (!closeButton)
