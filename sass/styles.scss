@@ -6,6 +6,7 @@
  */
 
 @use "base/mixins" with (
+    // Also update `js/scripts.js`
     $media-queries-breakpoints: (
         horizontal-menu: 600,
         desktop: 800,
