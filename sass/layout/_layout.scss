@@ -12,7 +12,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
+    min-height: 100vh;
     padding: 2.4rem;
+    box-sizing: border-box;
     &.home {
         background-image: url("images/background-home-mobile.jpg");
         gap: 4.8rem;
@@ -20,7 +22,14 @@ body {
     }
 }
 #menu {
-    order: 1;
+    body:not(.js) & {
+        order: 1;
+    }
+}
+@include css-media-queries ($below-breakpoint: horizontal-menu) {
+    body {
+        position: relative;
+    }
 }
 @include css-media-queries ($from-breakpoint: horizontal-menu) {
     body {
@@ -43,7 +52,9 @@ body {
     }
     #menu {
         justify-self: flex-end;
-        order: initial;
+        body:not(.js) {
+            order: initial;
+        }
     }
     #content {
         grid-area: content;
@@ -52,9 +63,7 @@ body {
 }
 @include css-media-queries ($from-breakpoint: wide-menu) {
     body {
-        min-height: 100vh;
         padding: 4rem 0 9.4rem 5.5rem;
-        box-sizing: border-box;
         &.home {
             background-image: url("images/background-home-desktop.jpg");
             row-gap: 25.1rem;
