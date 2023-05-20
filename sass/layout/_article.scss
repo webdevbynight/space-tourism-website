@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+/** @section General layout for articles */
+
+article {
+    h1 {
+        font-size: var(--article-title-text);
+        letter-spacing: var(--article-title-letter-spacing);
+        font-family: var(--condensed-font);
+        color: var(--secondary-colour);
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 3.2rem;
+        &::before {
+            font-weight: bold;
+            color: var(--secondary-colour-number);
+            margin-right: 1.6rem;
+            content: "0" attr(data-article-number);
+        }
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+        &:not(:first-of-type) {
+            margin-top: 5.8rem;
+        }
+        h2,
+        p,
+        dt,
+        dd {
+            text-align: center;
+        }
+        h2,
+        dl {
+            text-transform: uppercase;
+        }
+        h2,
+        dd {
+            font-family: var(--serif-font);
+            color: var(--secondary-colour);
+        }
+        h2 {
+            font-size: var(--title-large-text);
+            margin-bottom: .1rem;
+        }
+        dl {
+            margin-top: 3.2rem;
+            border-top: 1px solid var(--primary-border-colour);
+        }
+        dt {
+            font-size: var(--definition-text);
+            letter-spacing: var(--definition-letter-spacing);
+            font-family: var(--condensed-font);
+            margin: 3.2rem 0 1.2rem;
+        }
+        dd {
+            font-size: var(--value-text);
+        }
+        picture {
+            display: block;
+            order: -1;
+            margin: 0 auto 7.4rem;
+        }
+    }
+}

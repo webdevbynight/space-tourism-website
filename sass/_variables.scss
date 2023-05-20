@@ -13,6 +13,8 @@
     --body-line-height: calc(2.5 / 1.5);
     --menu-text: 1.6rem;
     --menu-letter-spacing: .27rem;
+    --article-title-text: 1.6rem;
+    --article-title-letter-spacing: .27rem;
     --definition-text: 1.4rem;
     --definition-letter-spacing: .235rem;
     --value-text: 2.8rem;
@@ -33,8 +35,10 @@
     --secondary-colour-inactive: rgb(255, 255, 255, .1744);
     --secondary-colour-inactive-border: rgb(255, 255, 255, .25);
     --secondary-colour-shadow: rgb(255, 255, 255, .1036);
+    --secondary-colour-number: rgb(255, 255, 255, .25);
     --button-foreground: var(--primary-background);
     --button-background: var(--secondary-colour);
+    --primary-border-colour: #383b4b;
     
     @include css-media-queries ($from-breakpoint: horizontal-menu, $below-breakpoint: wide-menu) {
         --menu-text: 1.4rem;

@@ -20,6 +20,9 @@ body {
         gap: 4.8rem;
         padding-bottom: 4.8rem;
     }
+    &.destination {
+        background-image: url("images/background-destination-mobile.jpg");
+    }
 }
 #menu {
     body:not(.js) & {
@@ -46,6 +49,9 @@ body {
             column-gap: inherit;
             padding-bottom: 9rem;
         }
+        &.destination {
+            background-image: url("images/background-destination-tablet.jpg");
+        }
     }
     #header {
         align-self: center;
@@ -68,6 +74,9 @@ body {
             background-image: url("images/background-home-desktop.jpg");
             row-gap: 25.1rem;
             padding-bottom: 13.1rem;
+        }
+        &.destination {
+            background-image: url("images/background-destination-desktop.jpg");
         }
     }
     #content {
