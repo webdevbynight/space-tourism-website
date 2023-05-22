@@ -1,10 +1,12 @@
 @charset "utf-8";
+@use "../base/mixins" as *;
 
 /** @section General layout for articles */
 
 article {
     h1 {
         font-size: var(--article-title-text);
+        line-height: 1.5;
         letter-spacing: var(--article-title-letter-spacing);
         font-family: var(--condensed-font);
         color: var(--secondary-colour);
@@ -35,6 +37,11 @@ article {
             text-transform: uppercase;
         }
         h2,
+        dt,
+        dd {
+            line-height: 1.5;
+        }
+        h2,
         dd {
             font-family: var(--serif-font);
             color: var(--secondary-colour);
@@ -60,6 +67,30 @@ article {
             display: block;
             order: -1;
             margin: 0 auto 7.4rem;
+        }
+    }
+    @include css-media-queries ($from-breakpoint: horizontal-menu) {
+        h1 {
+            text-align: initial;
+            margin-bottom: 6rem;
+        }
+        .card {
+            padding: 0 5.9rem;
+            &:not(:first-of-type) {
+                margin-top: 6.2rem;
+            }
+            dl {
+                column-count: 2;
+                gap: 1.1rem;
+                padding-top: 2.8rem;
+                margin-top: 4.9rem;
+            }
+            dt {
+                margin-top: 0;
+            }
+            picture {
+                margin-bottom: 11.9rem;
+            }
         }
     }
 }
