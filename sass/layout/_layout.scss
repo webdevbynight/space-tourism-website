@@ -69,6 +69,7 @@ body {
 }
 @include css-media-queries ($from-breakpoint: wide-menu) {
     body {
+        gap: 7.6rem normal;
         padding: 4rem 0 9.4rem 5.5rem;
         &.home {
             background-image: url("images/background-home-desktop.jpg");

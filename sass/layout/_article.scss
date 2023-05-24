@@ -79,6 +79,9 @@ article {
             &:not(:first-of-type) {
                 margin-top: 6.2rem;
             }
+            h2 {
+                margin-bottom: .8rem;
+            }
             dl {
                 column-count: 2;
                 gap: 1.1rem;
@@ -90,6 +93,56 @@ article {
             }
             picture {
                 margin-bottom: 11.9rem;
+            }
+        }
+    }
+    @include css-media-queries ($from-breakpoint: multicol-article) {
+        h1 {
+            margin-bottom: 9.7rem;
+        }
+        .card {
+            display: grid;
+            grid-template: repeat(2, auto) / 1fr auto;
+            column-gap: 13rem;
+            padding-right: 0;
+            padding-left: 6.35rem;
+            h2,
+            p,
+            dt,
+            dd {
+                text-align: initial;
+            }
+            h2 {
+                margin-top: 3.7rem;
+                margin-bottom: 1.4rem;
+            }
+            dl {
+                margin-top: 5.4rem;
+            }
+            picture {
+                grid-row: 1 / -1;
+                margin-bottom: 0;
+            }
+            .destination & {
+                grid-template: repeat(3, auto) / 30rem 1fr;
+                column-gap: 15.7rem;
+                &:not(:first-of-type) {
+                    margin-top: 11.2rem;
+                }
+            }
+        }
+    }
+    @include css-media-queries ($from-breakpoint: wide-multicol-stats) {
+        .card {
+            dl {
+                gap: 7.9rem;
+            }
+        }
+    }
+    @include css-media-queries ($from-breakpoint: wide-destination-multicol-article) {
+        .card {
+            .destination & {
+                grid-template-columns: 44.5rem 1fr;
             }
         }
     }
