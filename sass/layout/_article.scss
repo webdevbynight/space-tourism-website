@@ -47,8 +47,8 @@ article {
             color: var(--secondary-colour);
         }
         h2 {
-            font-size: var(--title-large-text);
-            margin-bottom: .1rem;
+            font-size: var(--article-subtitle-text);
+            margin-bottom: 1.6rem;
         }
         dl {
             margin-top: 3.2rem;
@@ -67,6 +67,37 @@ article {
             display: block;
             order: -1;
             margin: 0 auto 7.4rem;
+        }
+        .destination & {
+            h2 {
+                font-size: var(--title-large-text);
+                margin-bottom: .1rem;
+            }
+        }
+        .crew & {
+            &:not(:first-of-type) {
+                margin-top: 5.4rem;
+            }
+            h2 {
+                span {
+                    font-size: 1.6rem;
+                    color: var(--secondary-colour-function);
+                    display: block;
+                    margin-bottom: .8rem;
+                }
+            }
+        }
+    }
+    @include css-media-queries ($below-breakpoint: horizontal-menu) {
+        .card {
+            .crew & {
+                picture {
+                    text-align: center;
+                    margin-right: 0;
+                    margin-left: 0;
+                    border-bottom: 1px solid var(--primary-border-colour);
+                }
+            }
         }
     }
     @include css-media-queries ($from-breakpoint: horizontal-menu) {
