@@ -126,6 +126,24 @@ article {
                 margin-bottom: 11.9rem;
             }
         }
+        .crew & {
+            margin-bottom: -6.2rem;
+            .card {
+                &:not(:first-of-type) {
+                    margin-top: 6rem;
+                }
+                h2 {
+                    span {
+                        font-size: 2.4rem;
+                    }
+                }
+                picture {
+                    order: 1;
+                    margin-top: 9rem;
+                    margin-bottom: 0;
+                }
+            }
+        }
     }
     @include css-media-queries ($from-breakpoint: multicol-article) {
         h1 {
