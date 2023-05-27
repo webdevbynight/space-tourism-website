@@ -139,8 +139,44 @@ article {
                 }
                 picture {
                     order: 1;
-                    margin-top: 9rem;
                     margin-bottom: 0;
+                }
+            }
+        }
+    }
+    @include css-media-queries ($from-breakpoint: wide-menu) {
+        .crew & {
+            margin-bottom: -9.4rem;
+            h1 {
+                margin-bottom: 15.4rem;
+            }
+            .card {
+                display: grid;
+                grid-template: repeat(2, auto) / 1fr minmax(auto, 70.5rem);
+                column-gap: 2rem;
+                padding: 0;
+                margin-right: -16.3rem;
+                h2,
+                p {
+                    text-align: initial;
+                }
+                h2 {
+                    align-self: flex-end;
+                    margin-top: 0;
+                    margin-bottom: 2.7rem;
+                    span {
+                        font-size: 3.2rem;
+                        margin-bottom: 1.5rem;
+                    }
+                }
+                p {
+                    max-width: 44.4rem;
+                }
+                picture {
+                    display: initial;
+                    grid-row: 1 / -1;
+                    grid-column: 2;
+                    margin: 0;
                 }
             }
         }
@@ -180,6 +216,12 @@ article {
                 }
             }
         }
+        // .technology & {
+        //     margin-right: -16.3rem;
+        //     .card {
+        //         padding-left: 0;
+        //     }
+        // }
     }
     @include css-media-queries ($from-breakpoint: wide-multicol-stats) {
         .card {
