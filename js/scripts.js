@@ -90,7 +90,7 @@ if ('matchMedia' in window && 'querySelector' in document && typeof DOMTokenList
         sliderContainer.appendChild(sliderNavigation);
         sliderContainer.appendChild(slider);
         sliderNavigation.classList.add('slider-navigation');
-        sliderNavigation.innerHTML = '<ul class="slider-navigation"></ul>';
+        sliderNavigation.innerHTML = '<ul></ul>';
         cards.forEach((card, index) =>
         {
             const slideItem = ++ index,
