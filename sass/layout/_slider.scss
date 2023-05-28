@@ -1,0 +1,153 @@
+@charset "utf-8";
+@use "../base/mixins" as *;
+
+/** @section Slider */
+
+.slider-container {
+    padding-bottom: 5.7rem;
+    overflow-x: hidden;
+    position: relative;
+    .slider-navigation {
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 25.5rem;
+        right: 0;
+        left: 0;
+        z-index: 1;
+        ul {
+            display: flex;
+            gap: 1.6rem;
+            list-style: none;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        a {
+            color: inherit;
+            display: block;
+        }
+        circle {
+            fill: var(--secondary-colour);
+        }
+    }
+    .cards {
+        --card-width: calc(100vw - 4.8rem);
+        display: flex;
+        transition: transform 500ms ease-in-out;
+        .card {
+            flex: 0 0 var(--card-width);
+            &:not(:first-of-type) {
+                margin-top: 0;
+            }
+        }
+        @for $i from 1 through 4 {
+            &.display-slide-#{$i} {
+                transform: translateX(calc(var(--card-width) * -#{$i - 1}));
+            }
+        }
+    }
+    .destination & {
+        padding-bottom: 3.4rem;
+        .slider-navigation {
+            font-size: 1.4rem;
+            font-family: var(--condensed-font);
+            letter-spacing: .236rem;
+            top: 19.6rem;
+            ul {
+                gap: 2.7rem;
+            }
+            a {
+                padding-bottom: .8rem;
+                position: relative;
+                &:hover,
+                &:focus,
+                &[aria-current="true"] {
+                    &::before {
+                        display: block;
+                        width: 3.6rem;
+                        height: .3rem;
+                        margin-left: -1.8rem;
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        content: "";
+                    }
+                }
+                &:hover,
+                &:focus {
+                    &::before {
+                        background: var(--secondary-colour-hover);
+                    }
+                }
+                &[aria-current="true"] {
+                    color: var(--secondary-colour);
+                    &::before {
+                        background: var(--secondary-colour);
+                    }
+                }
+            }
+        }
+    }
+    .crew & {
+        padding-bottom: 3rem;
+        .slider-navigation {
+            a {
+                opacity: .1744;
+                transition: opacity 250ms ease-in;
+                &:hover,
+                &:focus {
+                    opacity: .5;
+                }
+                &[aria-current="true"] {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .technology & {
+        margin: 0 -2.4rem;
+        .slider-navigation {
+            font-size: 1.6rem;
+            font-family: var(--serif-font);
+            letter-spacing: .1rem;
+            color: var(--secondary-colour);
+            top: calc(20.4 / 37.5 * 100vw);
+            a {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 4rem;
+                aspect-ratio: 1;
+                border: 1px solid var(--secondary-colour-inactive-border);
+                border-radius: 50%;
+                box-sizing: border-box;
+                transition: border-color 250ms ease-in;
+                &:hover,
+                &:focus {
+                    border-color: var(--secondary-colour);
+                }
+                &[aria-current="true"] {
+                    color: var(--primary-background);
+                    background: var(--secondary-colour);
+                    border: none;
+                }
+            }
+        }
+        .cards {
+            --card-width: 100vw;
+            .card {
+                flex-basis: calc(var(--card-width) - 4.8rem);
+                margin: 0 2.4rem;
+            }
+        }
+    }
+    @include css-media-queries ($from-breakpoint: horizontal-menu) {
+        .destination & {
+            .slider-navigation {
+                font-size: 1.6rem;
+                letter-spacing: .27rem;
+            }
+        }
+    }
+}
