@@ -97,12 +97,12 @@ if ('matchMedia' in window && 'querySelector' in document && typeof DOMTokenList
                 displaySlide = (e) =>
                 {
                     e.preventDefault();
-                    const siblings = e.target.parentNode.parentNode.querySelectorAll(`a:not([href="${e.target.hash}"])`);
+                    const siblings = document.querySelectorAll('.slider-container a');
                     for (let node of siblings)
                     {
-                        node.removeAttribute('aria-current');
+                        if (node.hash === `#${card.id}`) node.setAttribute('aria-current', 'true');
+                        else node.removeAttribute('aria-current');
                     };
-                    e.target.setAttribute('aria-current', 'true');
                     slider.classList.replace(slider.classList[1], `display-slide-${slideItem}`);
                 },
                 bodyClasses = document.body.classList,
