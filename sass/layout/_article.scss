@@ -164,6 +164,26 @@ article {
                 }
             }
         }
+        .technology & {
+            .card {
+                &:not(:first-of-type) {
+                    margin-top: 9.7rem;
+                }
+                h2 {
+                    span {
+                        font-size: 1.6rem;
+                        letter-spacing: .27rem;
+                        margin-bottom: 1.6rem;
+                    }
+                    margin-bottom: 1.6rem;
+                }
+                picture {
+                    margin-right: -9.75rem;
+                    margin-bottom: 16rem;
+                    margin-left: -9.75rem;
+                }
+            }
+        }
     }
     @include css-media-queries ($from-breakpoint: wide-menu) {
         .crew & {
@@ -198,6 +218,14 @@ article {
                     grid-row: 1 / -1;
                     grid-column: 2;
                     margin: 0;
+                }
+            }
+        }
+        .technology & {
+            .card {
+                picture {
+                    margin-right: -22.2rem;
+                    margin-left: -22.6rem;
                 }
             }
         }
@@ -237,12 +265,32 @@ article {
                 }
             }
         }
-        // .technology & {
-        //     margin-right: -16.3rem;
-        //     .card {
-        //         padding-left: 0;
-        //     }
-        // }
+        .technology & {
+            margin-right: -16.3rem;
+            h1 {
+                margin-bottom: 2.6rem;
+            }
+            .card {
+                grid-template-columns: 1fr 51.5rem;
+                padding-left: 0;
+                &:not(:first-of-type) {
+                    margin-top: 10.1rem;
+                }
+                h2 {
+                    align-self: flex-end;
+                    margin-bottom: 1.7rem;
+                    span {
+                        margin-bottom: 1.1rem;
+                    }
+                }
+                picture {
+                    order: 1;
+                    grid-row: 1 / -1;
+                    grid-column: 2;
+                    margin: 0;
+                }
+            }
+        }
     }
     @include css-media-queries ($from-breakpoint: wide-multicol-stats) {
         .card {
@@ -250,6 +298,8 @@ article {
                 gap: 7.9rem;
             }
         }
+    }
+    @include css-media-queries ($from-breakpoint: wide-technology-multicol-article) {
     }
     @include css-media-queries ($from-breakpoint: wide-destination-multicol-article) {
         .card {

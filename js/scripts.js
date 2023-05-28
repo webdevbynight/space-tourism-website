@@ -11,6 +11,7 @@ if ('matchMedia' in window && 'querySelector' in document && typeof DOMTokenList
         'wide-menu': 997,
         'multicol-home-content': 1120,
         'multicol-article': 1182,
+        'wide-technology-multicol-article': 1280,
         'wide-destination-multicol-article': 1327,
         'wide-multicol-stats': 1390
     };
