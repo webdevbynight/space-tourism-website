@@ -80,73 +80,76 @@ if ('matchMedia' in window && 'querySelector' in document && typeof DOMTokenList
         });
 
         // Build the sliders
-        const article = document.querySelector('#content article'),
-            cards = article.querySelectorAll('.card'),
-            slider = document.createElement('div'),
-            sliderContainer = document.createElement('div'),
-            sliderNavigation = document.createElement('nav');
-        slider.classList.add('cards', 'display-slide-1');
-        sliderContainer.classList.add('slider-container');
-        sliderContainer.appendChild(sliderNavigation);
-        sliderContainer.appendChild(slider);
-        sliderNavigation.classList.add('slider-navigation');
-        sliderNavigation.innerHTML = '<ul></ul>';
-        cards.forEach((card, index) =>
+        if (!document.body.classList.contains('home'))
         {
-            const slideItem = ++ index,
-                displaySlide = (e) =>
-                {
-                    e.preventDefault();
-                    const siblings = document.querySelectorAll('.slider-container a');
-                    for (let node of siblings)
-                    {
-                        if (node.hash === `#${card.id}`) node.setAttribute('aria-current', 'true');
-                        else node.removeAttribute('aria-current');
-                    };
-                    slider.classList.replace(slider.classList[1], `display-slide-${slideItem}`);
-                },
-                bodyClasses = document.body.classList,
-                li = document.createElement('li'),
-                link = document.createElement('a'),
-                linkTitle = card.querySelector('h2').innerHTML.replace(/<\/?span>/g, ''),
-                svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
-                desc = document.createElementNS('http://www.w3.org/2000/svg', 'desc'),
-                circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-            svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-            svg.setAttribute('width', '10');
-            svg.setAttribute('height', '10');
-            svg.setAttribute('viewBox', '0 0 10 10');
-            desc.textContent = linkTitle;
-            circle.setAttribute('cx', '5');
-            circle.setAttribute('cy', '5');
-            circle.setAttribute('r', '5');
-            svg.appendChild(desc);
-            svg.appendChild(circle);
-            li.appendChild(link);
-            link.href = `#${card.id}`;
-            link.addEventListener('click', displaySlide);
-            if (!bodyClasses.contains('technology'))
+            const article = document.querySelector('#content article'),
+                cards = article.querySelectorAll('.card'),
+                slider = document.createElement('div'),
+                sliderContainer = document.createElement('div'),
+                sliderNavigation = document.createElement('nav');
+            slider.classList.add('cards', 'display-slide-1');
+            sliderContainer.classList.add('slider-container');
+            sliderContainer.appendChild(sliderNavigation);
+            sliderContainer.appendChild(slider);
+            sliderNavigation.classList.add('slider-navigation');
+            sliderNavigation.innerHTML = '<ul></ul>';
+            cards.forEach((card, index) =>
             {
-                if (bodyClasses.contains('crew'))
+                const slideItem = ++ index,
+                    displaySlide = (e) =>
+                    {
+                        e.preventDefault();
+                        const siblings = document.querySelectorAll('.slider-container a');
+                        for (let node of siblings)
+                        {
+                            if (node.hash === `#${card.id}`) node.setAttribute('aria-current', 'true');
+                            else node.removeAttribute('aria-current');
+                        };
+                        slider.classList.replace(slider.classList[1], `display-slide-${slideItem}`);
+                    },
+                    bodyClasses = document.body.classList,
+                    li = document.createElement('li'),
+                    link = document.createElement('a'),
+                    linkTitle = card.querySelector('h2').innerHTML.replace(/<\/?span>/g, ''),
+                    svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+                    desc = document.createElementNS('http://www.w3.org/2000/svg', 'desc'),
+                    circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+                svg.setAttribute('width', '10');
+                svg.setAttribute('height', '10');
+                svg.setAttribute('viewBox', '0 0 10 10');
+                desc.textContent = linkTitle;
+                circle.setAttribute('cx', '5');
+                circle.setAttribute('cy', '5');
+                circle.setAttribute('r', '5');
+                svg.appendChild(desc);
+                svg.appendChild(circle);
+                li.appendChild(link);
+                link.href = `#${card.id}`;
+                link.addEventListener('click', displaySlide);
+                if (!bodyClasses.contains('technology'))
                 {
-                    link.appendChild(svg);
+                    if (bodyClasses.contains('crew'))
+                    {
+                        link.appendChild(svg);
+                        link.title = linkTitle;
+                    }
+                    else link.innerHTML = linkTitle;
+                }
+                else
+                {
+                    link.innerHTML = slideItem;
+                    link.setAttribute('aria-label', linkTitle);
                     link.title = linkTitle;
                 }
-                else link.innerHTML = linkTitle;
-            }
-            else
-            {
-                link.innerHTML = slideItem;
-                link.setAttribute('aria-label', linkTitle);
-                link.title = linkTitle;
-            }
-            sliderNavigation.querySelector('ul').appendChild(li);
-            slider.appendChild(card);
-        });
-        article.appendChild(sliderContainer);
+                sliderNavigation.querySelector('ul').appendChild(li);
+                slider.appendChild(card);
+            });
+            article.appendChild(sliderContainer);
 
-        // The first slide being shown by default, simulate the click on the first anchor
-        sliderNavigation.querySelector('a').click();
+            // The first slide being shown by default, simulate the click on the first anchor
+            sliderNavigation.querySelector('a').click();
+        }
     });
 
 }
