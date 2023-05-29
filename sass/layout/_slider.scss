@@ -194,4 +194,129 @@
             }
         }
     }
+    @include css-media-queries ($from-breakpoint: wide-menu) {
+        .cards {
+            --card-width: calc(100vw - 16.65rem);
+        }
+        .destination & {
+            margin: 0;
+            .cards {
+                --card-width: calc(100vw - 16.65rem - 16.3rem);
+                .card {
+                    flex-basis: var(--card-width);
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+        }
+        .crew & {
+            margin-top: auto;
+            margin-right: -16.3rem;
+            margin-left: 0;
+            .slider-navigation {
+                top: initial;
+                right: initial;
+                bottom: 9.4rem;
+                ul {
+                    gap: 2.4rem;
+                }
+                svg {
+                    width: 1.5rem;
+                    aspect-ratio: 1;
+                }
+            }
+            .cards {
+                .card {
+                    grid-template-rows: repeat(2, auto);
+                    flex-basis: var(--card-width);
+                    margin: 0;
+                }
+            }
+        }
+        .technology & {
+            margin-right: -16.3rem;
+            margin-left: -16.65rem;
+            .cards {
+                .card {
+                    flex-basis: calc(100vw - (9.75rem * 2));
+                    padding: 0;
+                    margin: 0 9.75rem;
+                    picture {
+                        margin-right: -9.75rem;
+                        margin-left: -9.75rem;
+                    }
+                }
+            }
+        }
+    }
+    @include css-media-queries ($from-breakpoint: multicol-article) {
+        .destination & {
+            .slider-navigation {
+                top: 0;
+                right: initial;
+                left: 45.7rem;
+            }
+        }
+        .technology & {
+            margin: 0;
+            .slider-navigation {
+                top: 0;
+                right: initial;
+                left: 0;
+            }
+            .cards {
+                --card-width: calc(100vw - 16.65rem);
+                .card {
+                    flex-basis: calc(100vw - 16.65rem);
+                    margin: 0;
+                    picture {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+    @include css-media-queries ($from-breakpoint: wide-technology-multicol-article) {
+        .technology & {
+            --card-height: 52.7rem;
+            height: var(--card-height);
+            padding-bottom: 0;
+            margin-bottom: 3.5rem;
+            overflow-x: initial;
+            overflow-y: hidden;
+            .slider-navigation {
+                flex-direction: column;
+                bottom: 0;
+                ul {
+                    flex-direction: column;
+                    gap: 3.2rem;
+                }
+                a {
+                    width: 8rem;
+                }
+            }
+            .cards {
+                flex-direction: column;
+                @for $i from 1 through 4 {
+                    &.display-slide-#{$i} {
+                        transform: translateY(calc(var(--card-height) * -#{$i - 1}));
+                    }
+                }
+                .card {
+                    flex-basis: var(--card-height);
+                    h2,
+                    p {
+                        margin-left: 16rem;
+                    }
+                }
+            }
+        }
+    }
+    @include css-media-queries ($from-breakpoint: wide-destination-multicol-article) {
+        .destination & {
+            .slider-navigation {
+                left: 60.2rem;
+            }
+        }
+    }
 }
