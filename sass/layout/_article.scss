@@ -121,6 +121,15 @@ article {
             }
         }
     }
+    @include css-media-queries ($from-breakpoint: horizontal-menu, $below-breakpoint: wide-menu) {
+        .crew & {
+            .card {
+                h2 {
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
     @include css-media-queries ($from-breakpoint: horizontal-menu) {
         h1 {
             text-align: initial;
@@ -160,6 +169,7 @@ article {
                 }
                 picture {
                     order: 1;
+                    margin-top: 9rem;
                     margin-bottom: 0;
                 }
             }
@@ -298,8 +308,6 @@ article {
                 gap: 7.9rem;
             }
         }
-    }
-    @include css-media-queries ($from-breakpoint: wide-technology-multicol-article) {
     }
     @include css-media-queries ($from-breakpoint: wide-destination-multicol-article) {
         .card {
